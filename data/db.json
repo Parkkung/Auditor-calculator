@@ -106,6 +106,25 @@
       "iadvance": 0,
       "tagValue": "",
       "id": 6
+    },
+    {
+      "shopValue": {
+        "label": "Fast",
+        "value": "Fast"
+      },
+      "name": "park",
+      "day": "30",
+      "hour": "8",
+      "base": 0,
+      "otd": 0,
+      "oth": 0,
+      "deductd": 0,
+      "deducth": 0,
+      "late": 0,
+      "sadvance": 0,
+      "iadvance": 0,
+      "tagValue": "",
+      "id": 7
     }
   ]
 }
