@@ -50,6 +50,9 @@
 .report-preview a{
   text-decoration: none;
 }
+.deduct{
+  color: #f1356d;
+}
 
 /* report details page */
 .report-details h2 {

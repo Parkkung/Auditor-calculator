@@ -69,18 +69,18 @@ const ReportList = (props) => {
                     <Link to={`/reports/${report.id}`}>
                     <h2> { report.name}</h2>
                     <p> Salary : {report.base !== 0 && report.base}  {report.otd !== 0 && <span> + {(report.otd*(report.base/report.day)).toFixed(2)}</span>}
-                    {report.oth !== 0 && <span> + {(report.oth*((report.base/report.day)/report.hour)).toFixed(2)}</span>} {report.deductd !== 0 && <span> - {(report.deductd*(report.base/report.day)).toFixed(2)}</span>}
-                    {report.deducth !== 0 && <span> - {(report.deducth*((report.base/report.day)/report.hour)).toFixed(2)}</span>} {report.late !== 0 && <span> - {(report.late*5).toFixed(2)}</span>}
-                    {report.sadvance !== 0 && <span> - {(report.sadvance*1).toFixed(2)}</span>} {report.iadvance !== 0 && <span> - {(report.iadvance*1).toFixed(2)}</span>} = 
+                    {report.oth !== 0 && <span> + {(report.oth*((report.base/report.day)/report.hour)).toFixed(2)}</span>} {report.deductd !== 0 && <span className="deduct"> - {(report.deductd*(report.base/report.day)).toFixed(2)}</span>}
+                    {report.deducth !== 0 && <span className="deduct"> - {(report.deducth*((report.base/report.day)/report.hour)).toFixed(2)}</span>} {report.late !== 0 && <span className="deduct"> - {(report.late*5).toFixed(2)}</span>}
+                    {report.sadvance !== 0 && <span className="deduct"> - {(report.sadvance*1).toFixed(2)}</span>} {report.iadvance !== 0 && <span className="deduct">  - {(report.iadvance*1).toFixed(2)}</span>} = 
                     {(parseInt(report.base) + parseFloat(report.otd*(report.base/report.day)) + parseFloat(report.oth*((report.base/report.day)/report.hour)) - parseFloat(report.deductd*(report.base/report.day)) - parseFloat(report.deducth*((report.base/report.day)/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toFixed(2)}</p>
                     <p> Total Salary : {(parseInt(report.base) + parseFloat(report.otd*(report.base/report.day)) + parseFloat(report.oth*((report.base/report.day)/report.hour)) - parseFloat(report.deductd*(report.base/report.day)) - parseFloat(report.deducth*((report.base/report.day)/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toFixed(2)}</p>
                     {report.otd !== 0 && <p>OT(D) : {report.otd} day x {(parseFloat(report.base/report.day)).toFixed(2)} = {parseFloat(report.otd*(report.base/report.day)).toFixed(2)}</p>}
                     {report.oth !== 0 && <p>OT(H) : {report.oth} hour x {(parseFloat(report.base/report.day/report.hour).toFixed(2))} = {parseFloat(report.oth*((report.base/report.day)/report.hour)).toFixed(2)}</p>}
-                    {report.deductd !== 0 && <p>Deduct(D) : {report.deductd} day x {(parseFloat(report.base/report.day)).toFixed(2)} = {parseFloat(report.deductd*(report.base/report.day)).toFixed(2)}</p>}
-                    {report.deducth !== 0 && <p>Deduct(H) : {report.deducth} hour x {(parseFloat(report.base/report.day/report.hour).toFixed(2))} = {parseFloat(report.deducth*((report.base/report.day)/report.hour)).toFixed(2)}</p>}
-                    {report.late !== 0 && <p>Late(min) : {(report.late*1).toFixed(2)} min x 5 ={(report.late*5).toFixed(2)}</p>}
-                    {report.sadvance !== 0 && <p> Salary Advance : {(report.sadvance*1).toFixed(2)}</p>}
-                    {report.iadvance !== 0 && <p> Item Advance : {(report.iadvance*1).toFixed(2)}</p>}
+                    {report.deductd !== 0 && <p className="deduct">Deduct(D) : {report.deductd} day x {(parseFloat(report.base/report.day)).toFixed(2)} = {parseFloat(report.deductd*(report.base/report.day)).toFixed(2)}</p>}
+                    {report.deducth !== 0 && <p className="deduct">Deduct(H) : {report.deducth} hour x {(parseFloat(report.base/report.day/report.hour).toFixed(2))} = {parseFloat(report.deducth*((report.base/report.day)/report.hour)).toFixed(2)}</p>}
+                    {report.late !== 0 && <p className="deduct">Late(min) : {(report.late*1).toFixed(2)} min x 5 ={(report.late*5).toFixed(2)}</p>}
+                    {report.sadvance !== 0 && <p className="deduct"> Salary Advance : {(report.sadvance*1).toFixed(2)}</p>}
+                    {report.iadvance !== 0 && <p className="deduct"> Item Advance : {(report.iadvance*1).toFixed(2)}</p>}
                     </Link>
                 </div>
             ))}
