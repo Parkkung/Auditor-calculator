@@ -1,68 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import Creatable from 'react-select/creatable';
-
 
 const ReportList = (props) => {
     const reports = props.reports;
     const title = props.title;
-    const [searchShop,setSearchShop] = useState('')
-    
-    const shop=[
-        { label:'wine',value:'wine' },
-        { label:'สุรายาสูบ',value:'สุรายาสูบ' },
-        { label:'Fast',value:'Fast' },
-        { label:'King HDY',value:'King HDY' },
-        { label: 'King KN' ,value: 'King KN' },
-        { label: 'King SRT' ,value: 'King SRT' },
-        { label: 'John' ,value: 'John' },
-        { label: 'Fort' ,value: 'Fort' },
-        { label: 'Dodges' ,value: 'Dodges' },
-        { label: 'Champagne' ,value: 'Champagne' },
-        { label: 'Dewars' ,value: 'Dewars' },
-        { label: 'Rich' ,value: 'Rich' },
-        { label: 'PTL' ,value: 'PTL' },
-        { label: 'Green' ,value: 'Green' },
-        { label: 'Rose' ,value: 'Rose' }
-    ]
-    
-    const handleChange = (field,value) => {
-        switch (field) {
-            case 'searchShop':
-                setSearchShop(value);
-                break;
-            default:
-                break;
-        }
-    }
-    const customStyle = {
-        option : (provided,state)=> ({
-            ...provided,
-            borderBottom: '1px dotted pink',
-            color: state.isSelected ? 'red' : 'blue'
-        })
-    }
-
 
     return ( 
         <div className="report-list">
-            <label> Search Shop :</label>
-            <Creatable
-                isMulti
-                isClearable
-                onChange={(value => handleChange('searchShop',value))}
-                options={shop}
-                value={searchShop}
-                styles={customStyle}
-                />
-            {/* {reports.filter((reports) => {
-                if (searchShop === '') {
-                    return reports;
-                } else if (reports.shopValue === searchShop) {
-                    return reports;
-                }
-                return false;
-            }).map((report)  => ( */}
             <h2> { title } </h2>
             {reports.map((report) => (
                 <div className="report-preview" key={report.id}>
