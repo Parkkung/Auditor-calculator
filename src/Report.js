@@ -3,7 +3,7 @@ import useFetch from './useFetch';
 
 
 const Report = () => {
-    const { data: reports, isPending, error} = useFetch('http://localhost:8000/reports');
+    const { data: reports, isPending, error, searchShop} = useFetch('http://localhost:8000/reports');
     // const[name, setName] = useState('Pruk');
 
     // useEffect(() => {
@@ -16,7 +16,7 @@ const Report = () => {
         <div className="reportpage">
             { error && <div> { error }</div>}
             { isPending && <div>Loading...</div> }
-            {reports && <ReportList reports={reports} title="All Reports!" />}
+            {reports && <ReportList reports={reports} title= "All report!" />}
             {/* <button onClick={() => setName('Praew')}>change name</button>
             <p>{ name }</p>
             <ReportList reports={reports.filter((report) => report.name === 'Pruk')} title="Pruk's Reports!"/> */}

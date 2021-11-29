@@ -35,6 +35,7 @@ const Create = () => {
     const [day, setDay] = useState(0);
     const [hour, setHour] = useState(0);
     const [base, setBase] = useState(0);
+    const [baseused, setbaseUsed] = useState(1)
     const [otd, setOtd] = useState(0);
     const [oth, setOth] = useState(0);
     const [deductd, setDeductd] = useState(0);
@@ -49,7 +50,7 @@ const Create = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const report = { shopValue, name, day, hour, base, otd, oth, deductd, deducth, late, sadvance, iadvance, tagValue };
+        const report = { shopValue, name, day, hour, base, baseused, otd, oth, deductd, deducth, late, sadvance, iadvance, tagValue };
         
         fetch('http://localhost:8000/reports', {
             method: 'POST',
@@ -136,6 +137,13 @@ const Create = () => {
                     type="number"
                     onChange={(e) => setBase(e.target.value)}
                 />
+                <label> Base used? :</label>
+                <select
+                    value={baseused}
+                    onChange={(e) => setbaseUsed(e.target.value)}>
+                    <option value= "1" >yes</option>
+                    <option value= "0" >no</option>
+                </select>
                 <label> OT(D) :</label>
                 <input 
                     type="number"
