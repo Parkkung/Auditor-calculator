@@ -1,38 +1,3 @@
 {
-  "reports": [
-    {
-      "shopValue": "",
-      "name": "yes",
-      "day": "30",
-      "hour": "8",
-      "base": "10000",
-      "baseused": 1,
-      "otd": "4",
-      "oth": "16",
-      "deductd": "1",
-      "deducth": "8",
-      "late": 0,
-      "sadvance": "1000",
-      "iadvance": 0,
-      "tagValue": "",
-      "id": 1
-    },
-    {
-      "shopValue": "",
-      "name": "no",
-      "day": "30",
-      "hour": "8",
-      "base": "10000",
-      "baseused": "0",
-      "otd": "20",
-      "oth": "40",
-      "deductd": 0,
-      "deducth": 0,
-      "late": 0,
-      "sadvance": "1000",
-      "iadvance": 0,
-      "tagValue": "",
-      "id": 2
-    }
-  ]
+  "reports": []
 }

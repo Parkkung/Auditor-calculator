@@ -35,7 +35,7 @@ const Create = () => {
     const [day, setDay] = useState(0);
     const [hour, setHour] = useState(0);
     const [base, setBase] = useState(0);
-    const [baseused, setbaseUsed] = useState(1)
+    const [baseused, setbaseUsed] = useState("1")
     const [otd, setOtd] = useState(0);
     const [oth, setOth] = useState(0);
     const [deductd, setDeductd] = useState(0);

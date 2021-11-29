@@ -3,7 +3,7 @@ import useFetch from './useFetch';
 
 
 const Report = () => {
-    const { data: reports, isPending, error, searchShop} = useFetch('http://localhost:8000/reports');
+    const { data: reports, isPending, error} = useFetch('http://localhost:8000/reports');
     // const[name, setName] = useState('Pruk');
 
     // useEffect(() => {
