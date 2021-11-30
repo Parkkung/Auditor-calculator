@@ -1,38 +1,5 @@
 {
   "reports": [
-    {
-      "shopValue": "",
-      "name": "20day",
-      "day": "20",
-      "hour": "8",
-      "base": "10000",
-      "baseused": "0",
-      "otd": 0,
-      "oth": 0,
-      "deductd": 0,
-      "deducth": "8",
-      "late": "5",
-      "sadvance": "1000",
-      "iadvance": "500",
-      "tagValue": "",
-      "id": 1
-    },
-    {
-      "shopValue": "",
-      "name": "สมชาย",
-      "day": "30",
-      "hour": "8",
-      "base": "15000",
-      "baseused": "1",
-      "otd": 0,
-      "oth": 0,
-      "deductd": "2",
-      "deducth": "8",
-      "late": 0,
-      "sadvance": "3000",
-      "iadvance": 0,
-      "tagValue": "",
-      "id": 2
-    }
+
   ]
 }
