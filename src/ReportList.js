@@ -74,9 +74,8 @@ const ReportList = (props) => {
                         <p className="bold">
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
-                        {report.baseused === "1" && <span> + </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/30)).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> {parseFloat(report.otd*(report.base/30)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/30)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
                         {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/30)/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
                         {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/30)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
                         {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/30)/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
