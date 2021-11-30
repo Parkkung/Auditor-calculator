@@ -123,18 +123,22 @@ const Create = () => {
                 <label> Day :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     required
                     onChange={(e) => setDay(e.target.value)}
                 />
                 <label> Hour :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     required
                     onChange={(e) => setHour(e.target.value)}
                 />
                 <label> Base salary :</label>
                 <input 
                     type="number"
+                    step="0.1"
+                    required
                     onChange={(e) => setBase(e.target.value)}
                 />
                 <label> Base used? :</label>
@@ -147,36 +151,43 @@ const Create = () => {
                 <label> OT(D) :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     onChange={(e) => setOtd(e.target.value)}
                 />
                 <label> OT(H) :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     onChange={(e) => setOth(e.target.value)}
                 />
                 <label> Deduct(D) :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     onChange={(e) => setDeductd(e.target.value)}
                 />
                 <label> Deduct(H) :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     onChange={(e) => setDeducth(e.target.value)}
                 />
                 <label> Late(min) :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     onChange={(e) => setLate(e.target.value)}
                 />
                 <label> SalaryAdvance :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     onChange={(e) => setSAdvance(e.target.value)}
                 />       
                 <label> ItemAdvance :</label>
                 <input 
                     type="number"
+                    step="0.1"
                     onChange={(e) => setIAdvance(e.target.value)}
                 />
                 <label> Tag :</label>
