@@ -2,9 +2,14 @@
 
 * {
   margin: 0;
-  font-family: "Quicksand";
+  font-family: "Angsana New";
   color: #333;
 }
+
+.shopname {
+  color: #f1356d;
+}
+
 .navbar {
   padding: 20px;
   display: flex;
@@ -15,9 +20,11 @@
 }
 .navbar h1 {
   color: #f1356d;
+  font-size: 40px;
 }
 .navbar .links {
   margin-left: auto;
+  font-size: 25px;
 }
 .navbar a {
   margin-left: 16px;
@@ -43,9 +50,11 @@
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
 .report-preview h2 {
-  font-size: 20px;
-  color: #f1356d;
+  font-size: 25px;
   margin-bottom: 8px;
+}
+.report-preview p {
+  font-size: 20px;
 }
 .report-preview a{
   text-decoration: none;

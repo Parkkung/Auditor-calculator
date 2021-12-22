@@ -29,12 +29,11 @@ const customStyle = {
     })
 }
 
-const Create = () => {
+const Edit = () => {
     const [shopValue, setShopValue] = useState('');
     const [name, setName] = useState('');
     const [day, setDay] = useState(0);
     const [hour, setHour] = useState(0);
-    const [monthDay, setMonthDay] = useState("30");
     const [base, setBase] = useState(0);
     const [baseused, setbaseUsed] = useState("1")
     const [otd, setOtd] = useState(0);
@@ -49,9 +48,21 @@ const Create = () => {
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
+    const { id } = useParams()
+    const { data: report, error, isPending} = useFetch('http://localhost:8000/reports/' + id); 
+    const history = useHistory();
+    
+    const handleClick = () => {
+        fetch('http://localhost:8000/reports/' + report.id, {
+            method: 'PUT'
+        }).then(() => {
+            history.push('/');
+        })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const report = { shopValue, name, day, hour, monthDay, base, baseused, otd, oth, deductd, deducth, late, sadvance, iadvance, tagValue };
+        const report = { shopValue, name, day, hour, base, baseused, otd, oth, deductd, deducth, late, sadvance, iadvance, tagValue };
         
         fetch('http://localhost:8000/reports', {
             method: 'POST',
@@ -135,13 +146,6 @@ const Create = () => {
                     required
                     onChange={(e) => setHour(e.target.value)}
                 />
-                <label> Month-day :</label>
-                <select
-                    value={monthDay}
-                    onChange={(e) => setMonthDay(e.target.value)}>
-                    <option value= "30" >30</option>
-                    <option value= "31" >31</option>
-                </select>
                 <label> Base salary :</label>
                 <input 
                     type="number"
@@ -220,4 +224,4 @@ const Create = () => {
      );
 }
  
-export default Create;
+export default Edit;
