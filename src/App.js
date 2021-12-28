@@ -3,6 +3,7 @@ import Report from './Report';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Create from './Create';
 import ReportDetails from './ReportDetails';
+import Edit from './Edit';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
             </Route>
             <Route path="/reports/:id">
               <ReportDetails />
+            </Route>
+            <Route path="/edit/:id">
+              <Edit />
             </Route>
           </Switch>
         </div>

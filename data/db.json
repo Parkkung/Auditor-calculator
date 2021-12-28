@@ -1,0 +1,25 @@
+{
+  "reports": [
+    {
+      "shopValue": {
+        "label": "Fast",
+        "value": "Fast"
+      },
+      "name": "asdasd",
+      "day": "30",
+      "hour": "8",
+      "monthDay": "30",
+      "base": "12000",
+      "baseused": "1",
+      "otd": 0,
+      "oth": 0,
+      "deductd": 0,
+      "deducth": 0,
+      "late": 0,
+      "sadvance": 0,
+      "iadvance": 0,
+      "tagValue": "",
+      "id": 1
+    }
+  ]
+}

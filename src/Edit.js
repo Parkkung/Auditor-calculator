@@ -1,3 +1,5 @@
+import { useParams } from "react-router";
+import useFetch from "./useFetch";
 import { useState } from "react";
 import {useHistory} from 'react-router-dom';
 import Creatable from 'react-select/creatable';
@@ -30,10 +32,15 @@ const customStyle = {
 }
 
 const Edit = () => {
+
+    const { id } = useParams()
+    const { data: report} = useFetch('http://localhost:8000/reports/' + id); 
+
     const [shopValue, setShopValue] = useState('');
     const [name, setName] = useState('');
     const [day, setDay] = useState(0);
     const [hour, setHour] = useState(0);
+    const [monthDay, setMonthDay] = useState("30");
     const [base, setBase] = useState(0);
     const [baseused, setbaseUsed] = useState("1")
     const [otd, setOtd] = useState(0);
@@ -48,28 +55,16 @@ const Edit = () => {
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
-    const { id } = useParams()
-    const { data: report, error, isPending} = useFetch('http://localhost:8000/reports/' + id); 
-    const history = useHistory();
-    
-    const handleClick = () => {
-        fetch('http://localhost:8000/reports/' + report.id, {
-            method: 'PUT'
-        }).then(() => {
-            history.push('/');
-        })
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        const report = { shopValue, name, day, hour, base, baseused, otd, oth, deductd, deducth, late, sadvance, iadvance, tagValue };
+        const report = { shopValue, name, day, hour, monthDay, base, baseused, otd, oth, deductd, deducth, late, sadvance, iadvance, tagValue };
         
-        fetch('http://localhost:8000/reports', {
-            method: 'POST',
+        fetch('http://localhost:8000/reports/1', {
+            method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(report)
         }).then (() => {
-            console.log("new report added");
+            console.log("report has edited");
             setIsPending(false);
             history.push('/')
         })
@@ -146,6 +141,13 @@ const Edit = () => {
                     required
                     onChange={(e) => setHour(e.target.value)}
                 />
+                <label> Month-day :</label>
+                <select
+                    value={monthDay}
+                    onChange={(e) => setMonthDay(e.target.value)}>
+                    <option value= "30" >30</option>
+                    <option value= "31" >31</option>
+                </select>
                 <label> Base salary :</label>
                 <input 
                     type="number"

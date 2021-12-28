@@ -8,12 +8,15 @@ const ReportDetails = () => {
     const { data: report, error, isPending} = useFetch('http://localhost:8000/reports/' + id); 
     const history = useHistory();
     
-    const handleClick = () => {
+    const handleDelete = () => {
         fetch('http://localhost:8000/reports/' + report.id, {
             method: 'DELETE'
         }).then(() => {
             history.push('/');
         })
+    }
+    const handleEdit = () => {
+        history.push("/edit/"+report.id)
     }
     // if (report) {
     //     return report.name,
@@ -76,7 +79,8 @@ const ReportDetails = () => {
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    <button onClick={handleClick}>delete</button>
+                    <button onClick={handleDelete}>delete</button>
+                    <button onClick={handleEdit}>edit</button>
                 </article>
             )}
         </div>
