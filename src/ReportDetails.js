@@ -79,8 +79,8 @@ const ReportDetails = () => {
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    <button onClick={handleDelete}>delete</button>
-                    <button onClick={handleEdit}>edit</button>
+                    <button onClick={handleDelete}>DELETE</button>
+                    <button onClick={handleEdit}>EDIT</button>
                 </article>
             )}
         </div>

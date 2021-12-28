@@ -44,14 +44,14 @@ const Create = () => {
     const [late, setLate] = useState(0);
     const [sadvance, setSAdvance] = useState(0);
     const [iadvance, setIAdvance] = useState(0);
-    const [tagInputValue, setTagInputValue] = useState('');
-    const [tagValue, setTagValue] = useState('');
+    // const [tagInputValue, setTagInputValue] = useState('');
+    // const [tagValue, setTagValue] = useState('');
     const [isPending, setIsPending] = useState(false);
     const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const report = { shopValue, name, day, hour, monthDay, base, baseused, otd, oth, deductd, deducth, late, sadvance, iadvance, tagValue };
+        const report = { shopValue, name, day, hour, monthDay, base, baseused, otd, oth, deductd, deducth, late, sadvance, iadvance };
         
         fetch('http://localhost:8000/reports', {
             method: 'POST',
@@ -69,39 +69,39 @@ const Create = () => {
             case 'shop':
                 setShopValue(value);
                 break;
-            case 'tags':
-                setTagValue(value);
-                break;
+            // case 'tags':
+            //     setTagValue(value);
+            //     break;
         
             default:
                 break;
         }
     }
 
-    const handleKeyDown = event => {
-        if(!tagInputValue) return;
-        switch (event.key) {
-            case 'Enter':
-            case 'Tab':
-                setTagValue([...tagValue,createOption(tagInputValue)])
-                setTagInputValue('');
+    // const handleKeyDown = event => {
+    //     if(!tagInputValue) return;
+    //     switch (event.key) {
+    //         case 'Enter':
+    //         case 'Tab':
+    //             setTagValue([...tagValue,createOption(tagInputValue)])
+    //             setTagInputValue('');
 
-                event.preventDefault();
-                break;
+    //             event.preventDefault();
+    //             break;
         
-            default:
-                break;
-        }
-    }
+    //         default:
+    //             break;
+    //     }
+    // }
 
-    const createOption = label => ({
-        label,
-        value: label
-    })
+    // const createOption = label => ({
+    //     label,
+    //     value: label
+    // })
 
-    const handleInputChange = (value) => {
-        setTagInputValue(value);
-    }
+    // const handleInputChange = (value) => {
+    //     setTagInputValue(value);
+    // }
 
     return ( 
         <div className="create">
@@ -198,7 +198,7 @@ const Create = () => {
                     step="0.1"
                     onChange={(e) => setIAdvance(e.target.value)}
                 />
-                <label> Tag :</label>
+                {/* <label> Tag :</label>
                 <Creatable
                 isClearable
                 isMulti
@@ -212,7 +212,7 @@ const Create = () => {
                 onKeyDown={handleKeyDown}
                 onInputChange={handleInputChange}
                 value={tagValue}
-                />
+                /> */}
                 { !isPending &&  <button>Add Report</button>}
                 { isPending &&  <button disabled>Adding report...</button>}      
             </form>

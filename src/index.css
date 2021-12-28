@@ -8,6 +8,7 @@
 
 .shopname {
   color: #f1356d;
+  font-size: 30px;
 }
 
 .navbar {
@@ -24,7 +25,7 @@
 }
 .navbar .links {
   margin-left: auto;
-  font-size: 25px;
+  font-size: 30px;
 }
 .navbar a {
   margin-left: 16px;
@@ -50,11 +51,11 @@
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
 .report-preview h2 {
-  font-size: 25px;
+  font-size: 30px;
   margin-bottom: 8px;
 }
 .report-preview p {
-  font-size: 20px;
+  font-size: 25px;
 }
 .report-preview a{
   text-decoration: none;
@@ -78,12 +79,13 @@
 
 /* report details page */
 .report-details h2 {
-  font-size: 20px;
+  font-size: 30px;
   color: #f1356d;
   margin-bottom: 10px;
 }
 .report-details p {
   margin: 20px 0;
+  font-size: 25px;
 }
 .report-details button {
   background: #f1356d;
@@ -96,6 +98,10 @@
 .report-details div{
   display: flex;
 }
+.report-details button{
+  font-size: 25px;
+  margin: 10px;
+}
 
 
 /* create new blog form */
@@ -107,9 +113,10 @@
 .create label {
   text-align: left;
   display: block;
+  font-size: 25px;
 }
 .create h2 {
-  font-size: 20px;
+  font-size: 30px;
   color: #f1356d;
   margin-bottom: 30px;
 }
@@ -120,6 +127,7 @@
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
+  font-size: 20px;
 }
 .create button {
   background: #f1356d;
@@ -128,4 +136,5 @@
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 20px;
 }
