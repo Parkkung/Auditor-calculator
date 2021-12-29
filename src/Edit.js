@@ -169,14 +169,6 @@ const Edit = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
-                <label> Day :</label>
-                <input 
-                    type="number"
-                    step="0.1"
-                    required
-                    value={day}
-                    onChange={(e) => setDay(e.target.value)}
-                />
                 <label> Hour :</label>
                 <input 
                     type="number"
@@ -209,6 +201,14 @@ const Edit = () => {
                     <option value= "1" >yes</option>
                     <option value= "0" >no</option>
                 </select>
+                <label> Day :</label>
+                <input 
+                    type="number"
+                    step="0.1"
+                    required
+                    value={day}
+                    onChange={(e) => setDay(e.target.value)}
+                />
                 <label> OT(D) :</label>
                 <input 
                     type="number"
