@@ -74,13 +74,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -89,31 +89,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -131,13 +131,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -146,31 +146,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -188,13 +188,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -203,31 +203,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -245,13 +245,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -260,31 +260,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -302,13 +302,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -317,31 +317,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -359,13 +359,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -374,31 +374,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -416,13 +416,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -431,31 +431,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -473,13 +473,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -488,31 +488,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -530,13 +530,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -545,31 +545,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -587,13 +587,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -602,31 +602,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -644,13 +644,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -659,31 +659,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -701,13 +701,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -716,31 +716,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -758,13 +758,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -773,31 +773,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -815,13 +815,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -830,31 +830,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
@@ -872,13 +872,13 @@ const ReportList = (props) => {
                         {report.base !== 0 && parseInt(report.base).toLocaleString()}
                         {report.baseused === "0" && <span> &gt;&gt; </span>}
                         {report.baseused === "0" && parseFloat(report.day*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}
-                        {report.otd !== 0 && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.oth !== 0 && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deductd !== 0 && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.deducth !== 0 && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.late !== 0 && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.sadvance !== 0 && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
-                        {report.iadvance !== 0 && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
+                        {report.otd !== 0 && report.otd !== "0" && <span> + {parseFloat(report.otd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.oth !== 0 && report.oth !== "0" && <span> + {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deductd !== 0 && report.deductd !== "0" && <span className="deduct"> - {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.deducth !== 0 && report.deducth !== "0" && <span className="deduct"> - {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.late !== 0 && report.late !== "0" && <span className="deduct"> - {parseFloat(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.sadvance !== 0 && report.sadvance !== "0" && <span className="deduct"> - {parseFloat(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>}
+                        {report.iadvance !== 0 &&  report.iadvance !== "0" && <span className="deduct">  - {parseFloat(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</span>} = 
                         &emsp;
                         {report.baseused === "0" && (parseFloat(report.day*(report.base/parseInt(report.monthDay))) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}
                         {report.baseused === "1" && (parseInt(report.baseused*report.base) + parseFloat(report.otd*(report.base/parseInt(report.monthDay))) + parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)) - parseFloat(report.deductd*(report.base/parseInt(report.monthDay))) - parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)) - parseInt(report.late*5) - parseInt(report.sadvance) - parseInt(report.iadvance)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
@@ -887,31 +887,31 @@ const ReportList = (props) => {
                         <p className="space-detail">Working Day:</p>
                         <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
-                    {report.otd !== 0 && <div>
+                    {report.otd !== 0 && report.otd !== "0" && <div>
                         <p className="space-detail">OT(D) :</p>
                         <p>{report.otd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.otd*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.oth !== 0 && <div>
+                    {report.oth !== 0 && report.oth !== "0" && <div>
                         <p className="space-detail">OT(H) :</p>
                         <p>{report.oth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.oth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deductd !== 0 && <div>
+                    {report.deductd !== 0 && report.deductd !== "0" && <div>
                         <p className="deduct space-detail">Deduct(D) :</p>
                         <p className="deduct">{report.deductd} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {parseFloat(report.deductd*(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.deducth !== 0 && <div>
+                    {report.deducth !== 0 && report.deducth !== "0" && <div>
                         <p className="deduct space-detail">Deduct(H) :</p>
                         <p className="deduct">{report.deducth} hour x {(parseFloat(report.base/parseInt(report.monthDay)/report.hour).toLocaleString(undefined, {maximumFractionDigits:2}))} = {parseFloat(report.deducth*((report.base/parseInt(report.monthDay))/report.hour)).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.late !== 0 && <div>
+                    {report.late !== 0 && report.late !== "0" && <div>
                         <p className="deduct space-detail">Late(min) :</p>
                         <p className="deduct">{(report.late*1).toLocaleString(undefined, {maximumFractionDigits:2})} min x 5 ={(report.late*5).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.sadvance !== 0 && <div>
+                    {report.sadvance !== 0 && report.sadvance !== "0" && <div>
                         <p className="deduct space-detail">Salary Advance :</p>
                         <p className="deduct">{(report.sadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}
-                    {report.iadvance !== 0 && <div>
+                    {report.iadvance !== 0 &&  report.iadvance !== "0" && <div>
                         <p className="deduct space-detail">Item Advance :</p>
                         <p className="deduct">{(report.iadvance*1).toLocaleString(undefined, {maximumFractionDigits:2})}</p>
                     </div>}

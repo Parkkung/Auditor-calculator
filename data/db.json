@@ -1,4 +1,58 @@
 {
   "reports": [
+    {
+      "shopValue": "",
+      "name": "pppp",
+      "day": 0,
+      "hour": "8",
+      "monthDay": "30",
+      "base": "12000",
+      "baseused": "1",
+      "otd": "0",
+      "oth": "0",
+      "deductd": "0",
+      "deducth": "0",
+      "late": "0",
+      "sadvance": "0",
+      "iadvance": "0",
+      "id": 1
+    },
+    {
+      "shopValue": "",
+      "name": "asdasd",
+      "day": "30",
+      "hour": "8",
+      "monthDay": "30",
+      "base": "12000",
+      "baseused": "1",
+      "otd": "2",
+      "oth": "8",
+      "deductd": 0,
+      "deducth": 0,
+      "late": 0,
+      "sadvance": 0,
+      "iadvance": 0,
+      "id": 3
+    },
+    {
+      "shopValue": {
+        "label": "wine",
+        "value": "wine"
+      },
+      "name": "pppp",
+      "day": "30",
+      "hour": "8",
+      "monthDay": "30",
+      "base": "12000",
+      "baseused": "1",
+      "otd": "0",
+      "oth": "0",
+      "deductd": 0,
+      "deducth": 0,
+      "late": 0,
+      "sadvance": 0,
+      "iadvance": 0,
+      "id": 5
+    }
   ]
 }
