@@ -17,7 +17,8 @@ const shop=[
     { label: 'Rich' ,value: 'Rich' },
     { label: 'PTL' ,value: 'PTL' },
     { label: 'Green' ,value: 'Green' },
-    { label: 'Rose' ,value: 'Rose' }
+    { label: 'Rose' ,value: 'Rose' },
+    { label: 'Jack' ,value: 'Jack' }    
 
 ]
 
