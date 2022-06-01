@@ -87,7 +87,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -144,7 +144,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -201,7 +201,7 @@ const ReportList = (props) => {
                                 </div>
                                 {report.baseused === "0" && <div>
                                     <p className="space-detail">Working Day:</p>
-                                    <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                                    <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                                 </div>}
                                 {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                                     <p className="space-detail">OT(D) :</p>
@@ -258,7 +258,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -315,7 +315,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -372,7 +372,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -429,7 +429,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -486,7 +486,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -543,7 +543,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -600,7 +600,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -657,7 +657,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -714,7 +714,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -771,7 +771,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -828,7 +828,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -885,7 +885,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -942,7 +942,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -999,7 +999,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>
@@ -1056,7 +1056,7 @@ const ReportList = (props) => {
                     </div>
                     {report.baseused === "0" && <div>
                         <p className="space-detail">Working Day:</p>
-                        <p>{report.day} x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
+                        <p>{report.day} day x {(parseFloat(report.base/parseInt(report.monthDay))).toLocaleString(undefined, {maximumFractionDigits:2})} = {(parseFloat(report.day*(report.base/parseInt(report.monthDay)))).toLocaleString(undefined, {maximumFractionDigits:2})}</p>    
                     </div>}
                     {report.otd !== 0 && report.otd !== "0" && report.otd !== "" && <div>
                         <p className="space-detail">OT(D) :</p>

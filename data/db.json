@@ -1,3 +1,24 @@
 {
-  "reports": []
+  "reports": [
+    {
+      "shopValue": {
+        "label": "TP",
+        "value": "TP"
+      },
+      "name": "asd",
+      "day": "20",
+      "hour": "8",
+      "monthDay": "30",
+      "base": "10000",
+      "baseused": "0",
+      "otd": "8",
+      "oth": "16",
+      "deductd": "1",
+      "deducth": "20",
+      "late": "60",
+      "sadvance": "1000",
+      "iadvance": "500",
+      "id": 1
+    }
+  ]
 }
